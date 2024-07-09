@@ -1,0 +1,71 @@
+﻿
+@{
+	ViewData["Title"] = "Home Page";
+}
+<div class="wrapper">
+	<h1 class="title">Welcome</h1>
+
+	<form method="post" action="/Home/SetCookie">
+		<div class="cookie--form">
+			<label for="userName" class=" default--text">Enter your username</label>
+			<input type="text" class="cookie--form--input" id="userName" name="userName" required />
+			<button type="submit" class="btn btn-primary">Set Cookie</button>
+		</div>
+	</form>
+
+	<p class="default--text">Your username form cookie: @ViewBag.UserName</p>
+	@if(ViewBag.Message != "")
+	{
+		<p class="default--text">@ViewBag.Message</p>
+	}
+
+	<form method="post" action="/Home/DeleteCookie">
+		<button type="submit" class="btn btn-primary">Delete Cookie</button>
+	</form>
+</div>
+<style>
+	*{
+		padding:0px;
+		margin:0px;
+	}
+
+	.wrapper {
+		height:100vh;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		gap:10px;
+		border:2px solid #000000;
+		background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%), linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+	}
+
+	.title{
+		color: #d1d1f;
+		font-size: 5rem;
+	}
+
+	.default--text {
+		color: #d1d1f;
+		font-size:2rem;
+		font-weight:500;
+	}
+
+	.cookie--form{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items:center;
+		margin: 10px 0px;
+	}
+
+	.cookie--form--input{
+		margin: 10px 0px;
+		
+	}
+
+	.btn-primary: {
+		padding:3px;
+	}
+
+</style>
